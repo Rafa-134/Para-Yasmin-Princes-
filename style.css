@@ -1,0 +1,156 @@
+:root {
+  --fundo: #14071f;
+  --roxo: #5a2a8c;
+  --roxo-claro: #b79ae0;
+  --sangue: #8b0f1f;
+  --sangue-escuro: #5c0a14;
+  --texto: #f1e8f7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: "Nunito", Arial, sans-serif;
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+
+h1, h2 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 16px;
+}
+
+section {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 72px 24px;
+}
+
+/* Início */
+.inicio {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: radial-gradient(circle at 50% 35%, var(--roxo) 0%, var(--fundo) 65%);
+  max-width: none;
+}
+
+.inicio h1 {
+  font-size: clamp(2.6rem, 9vw, 4.5rem);
+  color: #fff;
+}
+
+.inicio p {
+  max-width: 480px;
+  color: var(--roxo-claro);
+}
+
+/* Coração batendo */
+.coracao {
+  width: 90px;
+  height: 90px;
+  background: var(--sangue);
+  transform: rotate(-45deg);
+  position: relative;
+  margin: 0 0 56px;
+  animation: batida 1.4s infinite;
+  box-shadow: 0 0 40px var(--sangue);
+}
+
+.coracao::before,
+.coracao::after {
+  content: "";
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  background: var(--sangue);
+  border-radius: 50%;
+}
+
+.coracao::before {
+  top: -45px;
+  left: 0;
+}
+
+.coracao::after {
+  left: 45px;
+  top: 0;
+}
+
+@keyframes batida {
+  0%, 100% { transform: rotate(-45deg) scale(1); }
+  20% { transform: rotate(-45deg) scale(1.12); }
+  40% { transform: rotate(-45deg) scale(1); }
+  55% { transform: rotate(-45deg) scale(1.08); }
+}
+
+/* Blocos de texto */
+.bloco {
+  border-left: 4px solid var(--sangue);
+  padding-left: 20px;
+}
+
+.bloco h2 {
+  font-size: 2rem;
+  color: var(--roxo-claro);
+}
+
+/* Linguagem do amor */
+.linguagem {
+  background: linear-gradient(135deg, var(--sangue-escuro), var(--roxo));
+  max-width: none;
+}
+
+.linguagem .interno {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.linguagem h2 {
+  font-size: 2.2rem;
+  color: #fff;
+}
+
+.cartoes {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.cartao {
+  flex: 1 1 220px;
+  padding: 20px;
+  border: 1px solid var(--roxo-claro);
+  border-radius: 12px;
+  background: rgba(20, 7, 31, 0.5);
+}
+
+.cartao strong {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.5rem;
+  display: block;
+}
+
+footer {
+  text-align: center;
+  padding: 32px 24px 48px;
+  color: var(--roxo-claro);
+  font-size: 0.95rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .coracao {
+    animation: none;
+  }
+}
